@@ -9,7 +9,7 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  const { handleRegister, GoogleSignIn } = useAuth();
+ const {handleRegister,     GoogleSignIn} = useAuth();
 
   // email register
   const registerHandle = async (data) => {
