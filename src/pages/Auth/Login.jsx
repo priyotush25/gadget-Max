@@ -1,13 +1,34 @@
 import React from "react";
 import Container from "../../component/Container/Container";
 import Button from "../../component/Button/Button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const { handleSubmit, register } = useForm();
+  const { GoogleSignIn, handleLogin } = useAuth();
+  const navigate = useNavigate();
 
-  const LoginHandle = async () => {};
+  // login with email and pass
+  const LoginHandle = async (data) => {
+    try {
+      await handleLogin(data.email, data.password);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // login with google
+  const handleGoogleLogin = async () => {
+    try {
+      await GoogleSignIn();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Container className="w-full flex items-center justify-center py-16">
@@ -55,7 +76,7 @@ const Login = () => {
         </div>
 
         {/* Google Login */}
-        <Button
+        <button
           onClick={handleGoogleLogin}
           className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded flex items-center justify-center space-x-2"
         >
@@ -65,7 +86,7 @@ const Login = () => {
             className="w-5 h-5"
           />
           <span>Login with Google</span>
-        </Button>
+        </button>
 
         {/* Don't have an account */}
         <p className="text-center text-sm text-gray-500 mt-4">
