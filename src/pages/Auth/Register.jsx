@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import uploadImage from "../../utils/uploadImage";
 import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
+import API from "../../api/axios";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -23,6 +24,14 @@ const Register = () => {
 
       console.log("user register successfully");
       reset();
+
+
+     await API.post("/auth/register", {
+        name: data.name,
+        image: imageURL,
+        email: data.email,
+        password: data.password,
+      });
 
     } catch (err) {
       console.log(err);

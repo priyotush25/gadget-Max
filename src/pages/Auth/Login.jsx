@@ -7,8 +7,12 @@ import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const { handleSubmit, register } = useForm();
-  const { GoogleSignIn, handleLogin } = useAuth();
+  const { GoogleSignIn, handleLogin, user } = useAuth();
   const navigate = useNavigate();
+
+  if(user){
+    navigate("/")
+  }
 
   // login with email and pass
   const LoginHandle = async (data) => {
