@@ -13,7 +13,7 @@ const uploadImage = async(imageFile) => {
     body: formData
    })
 
-   const data = res.json();
+   const data = await res.json();
    return data.data.display_url;
 
 

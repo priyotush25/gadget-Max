@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../../component/Container/Container";
-import Button from "../../component/Button/Button";
 import { Link } from "react-router";
 import { useForm } from "react-hook-form";
 import uploadImage from "../../utils/uploadImage";
@@ -8,8 +7,8 @@ import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
- const {handleRegister,     GoogleSignIn} = useAuth();
+  const { register, handleSubmit, reset } = useForm();
+ const {handleRegister, GoogleSignIn} = useAuth();
 
   // email register
   const registerHandle = async (data) => {
@@ -23,6 +22,8 @@ const Register = () => {
       });
 
       console.log("user register successfully");
+      reset();
+
     } catch (err) {
       console.log(err);
     }

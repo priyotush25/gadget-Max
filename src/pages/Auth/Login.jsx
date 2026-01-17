@@ -2,11 +2,12 @@ import React from "react";
 import Container from "../../component/Container/Container";
 import Button from "../../component/Button/Button";
 import { Link } from "react-router";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const handleGoogleLogin = async () => {
-    // Google login logic will go here
-  };
+  const { handleSubmit, register } = useForm();
+
+  const LoginHandle = async () => {};
 
   return (
     <Container className="w-full flex items-center justify-center py-16">
@@ -15,29 +16,35 @@ const Login = () => {
           Login
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit(LoginHandle)}>
           {/* Email & Password */}
           <div>
-            <label className="block mb-1 font-medium text-gray-700">Email</label>
+            <label className="block mb-1 font-medium text-gray-700">
+              Email
+            </label>
             <input
               type="email"
+              {...register("email", { required: true })}
               placeholder="Enter your email"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           <div>
-            <label className="block mb-1 font-medium text-gray-700">Password</label>
+            <label className="block mb-1 font-medium text-gray-700">
+              Password
+            </label>
             <input
               type="password"
+              {...register("password", { required: true })}
               placeholder="Enter your password"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
 
           {/* Login Button */}
-          <Button className="w-full text-center bg-green-600 hover:bg-green-700 text-white py-2 rounded mt-2">
+          <button className="w-full text-center cursor-pointer bg-green-600 hover:bg-green-700 text-white py-2 rounded mt-2">
             Login
-          </Button>
+          </button>
         </form>
 
         {/* Divider */}
@@ -63,7 +70,10 @@ const Login = () => {
         {/* Don't have an account */}
         <p className="text-center text-sm text-gray-500 mt-4">
           Don’t have an account?{" "}
-          <Link to={"/register"} className="text-green-600 cursor-pointer hover:underline">
+          <Link
+            to={"/register"}
+            className="text-green-600 cursor-pointer hover:underline"
+          >
             Register
           </Link>
         </p>
