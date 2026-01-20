@@ -1,4 +1,4 @@
-# ShopLite
+# GadgetMax
 
 ## Short Project Description
 
