@@ -15,8 +15,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "ShopLite | Premium E-commerce",
-  description: "Experience the next generation of online shopping.",
+  title: "GadgetMax | Gadget E-commerce",
+  description: "Where Gadgets Meet Innovation",
 };
 
 export default function RootLayout({
