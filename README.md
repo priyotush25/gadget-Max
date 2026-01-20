@@ -46,7 +46,7 @@ You can deploy the `server` folder to any Node.js hosting platform like **Render
 4.  **Build Command:** `npm install`
 5.  **Start Command:** `npm start`
 6.  **Environment Variables:**
-    - `CLIENT_URL`: The URL of your deployed frontend (e.g., `https://your-shop-lite.vercel.app`).
+    - `CLIENT_URL`: The URL of your deployed frontend (e.g., `https://gadget-max.vercel.app`).
     - `NODE_ENV`: `production`
 
 ### 2. Deploying the Frontend
